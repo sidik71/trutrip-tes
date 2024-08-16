@@ -1,0 +1,411 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentations Travel Planner",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v1",
+            "description": "Documentations Travel Planner"
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "operationId": "241eee709559dc471af0fc6b3aa60011",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "example": ""
+                                    },
+                                    "password": {
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "operationId": "2ce8a844d5324c2db22c0f6b079f3a52",
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/refresh-token": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "operationId": "852994ee109a31ed80e279ca867c05a6",
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "operationId": "78dc37871ec1fc77384eb6918d26ed7f",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "example": ""
+                                    },
+                                    "email": {
+                                        "example": ""
+                                    },
+                                    "password": {
+                                        "example": ""
+                                    },
+                                    "password_confirmation": {
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/trip-list-delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Trip Management"
+                ],
+                "operationId": "fbfbfc16431027f275ef791d5e863fb7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of trip",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": ""
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trip-list": {
+            "get": {
+                "tags": [
+                    "Trip Management"
+                ],
+                "operationId": "c5c2a05088711ad4949ecb756ca3017a",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search of results",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": ""
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit the number of results",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 10
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page the number of results",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trip-list-detail/{id}": {
+            "get": {
+                "tags": [
+                    "Trip Management"
+                ],
+                "operationId": "f09e9755e20d8fa7c86c750a7e384e9f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of trip",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": ""
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trip-list-create": {
+            "post": {
+                "tags": [
+                    "Trip Management"
+                ],
+                "operationId": "488712be0207d15810da711fa0feca2f",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "example": ""
+                                    },
+                                    "origin": {
+                                        "example": ""
+                                    },
+                                    "destination": {
+                                        "example": ""
+                                    },
+                                    "start_date": {
+                                        "example": ""
+                                    },
+                                    "end_date": {
+                                        "example": ""
+                                    },
+                                    "status": {
+                                        "example": ""
+                                    },
+                                    "description": {
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/trip-list-update/{id}": {
+            "put": {
+                "tags": [
+                    "Trip Management"
+                ],
+                "operationId": "7ce09a814f09a05c745341df1f2ac040",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of trip",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "example": ""
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "example": ""
+                                    },
+                                    "origin": {
+                                        "example": ""
+                                    },
+                                    "destination": {
+                                        "example": ""
+                                    },
+                                    "start_date": {
+                                        "example": ""
+                                    },
+                                    "end_date": {
+                                        "example": ""
+                                    },
+                                    "status": {
+                                        "example": ""
+                                    },
+                                    "description": {
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "return Otp Model",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Trip Management",
+            "description": "Trip Management"
+        }
+    ]
+}
