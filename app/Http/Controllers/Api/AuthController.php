@@ -46,7 +46,7 @@ class AuthController extends Controller
         // JWTAuth
         $token = JWTAuth::attempt([
             "email" => $request->email,
-            "password" => $request->password
+            "password" => $request->password,
         ]);
 
         if(!empty($token)){
@@ -54,7 +54,8 @@ class AuthController extends Controller
             return response()->json([
                 "status" => true,
                 "message" => "User logged in succcessfully",
-                "token" => $token
+                "token" => $token,
+                "id" => auth()->user()->id
             ]);
         }
 

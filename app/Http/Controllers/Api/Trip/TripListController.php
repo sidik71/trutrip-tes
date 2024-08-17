@@ -75,7 +75,18 @@ class TripListController extends Controller
         $triplist = TripList::create($data);
         $triplist->schedule = date('d F Y', strtotime($triplist->start_date)) . " - ". date('d F Y', strtotime($triplist->end_date));
 
-        return response()->json($triplist, 201);
+        if ($triplist) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Your trip created',
+                'data' => $triplist
+            ],201);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'Failed to create your trip'
+        ], 500);
     }
 
     /**
@@ -118,13 +129,17 @@ class TripListController extends Controller
         $triplist = TripList::find($id);
 
         if (!$triplist) {
-            return response()->json(['message' => 'Sorry, your trip not found'], 404);
+            return response()->json(['status' => false,'message' => 'Sorry, your trip not found'], 404);
         }
 
         $triplist->update($request->all());
         $triplist->schedule = date('d F Y', strtotime($triplist->start_date)) . " - ". date('d F Y', strtotime($triplist->end_date));
 
-        return response()->json($triplist);
+        return response()->json([
+            'status' => true,
+            'message' => 'Your trip updated',
+            'data' => $triplist
+        ],200);
     }
 
     /**
@@ -135,11 +150,15 @@ class TripListController extends Controller
         $triplist = TripList::find($id);
 
         if (!$triplist) {
-            return response()->json(['message' => 'Sorry, your trip not found'], 404);
+            return response()->json(['status' => false,'message' => 'Sorry, your trip not found'], 404);
         }
 
         $triplist->delete();
 
-        return response()->json(['message' => 'Your trip deleted']);
+        return response()->json([
+            'status' => true,
+            'message' => 'Your trip deleted',
+            'data' => $triplist
+        ],204);
     }
 }

@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Travel Planner
 $router->group(['prefix' => 'v1'], function () use ($router) {
     Route::post('register',[AuthController::class,'register']);
-    Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']);
+    Route::post('login',[AuthController::class,'login'])->name('login');
 
 
     Route::group(["middleware" => ["auth:api"]], function(){
