@@ -10,7 +10,6 @@ This is a Laravel-based project that uses MySQL for database management, Swagger
 - [Database Setup](#database-setup)
 - [Swagger API Documentation](#swagger-api-documentation)
 - [Running Tests](#running-tests)
-- [License](#license)
 
 ## Requirements
 
