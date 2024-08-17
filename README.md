@@ -104,11 +104,6 @@ PHPUnit is used for automated testing.
 
 2. **Run specific test file**:
    ```bash
-    php artisan test --filter=SpecificTest
-   ```
-
-3. **Generate coverage report (optional, requires Xdebug)**:
-   ```bash
-    php artisan test --coverage
+    php artisan test --filter TripManagementTest
    ```
    
